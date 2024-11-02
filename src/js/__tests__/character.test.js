@@ -8,7 +8,6 @@ test('should correct creation of Character object', () => {
     type: 'Daemon',
     health: 100,
     level: 1,
-    attack: null,
     defence: null
   };
 

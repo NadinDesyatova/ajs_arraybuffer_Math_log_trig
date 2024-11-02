@@ -18,25 +18,23 @@ export default class Character {
     this.type = type;
     this.health = 100;
     this.level = 1;
-    this.attack = null;
     this.defence = null;
   }
-  
-  setStoned(distanceInCells) {
-    this.stoned = Math.log2(distanceInCells)* 5;
+
+  get stoned() {
+    return this._stoned;
   }
 
-  getStoned() {
-    return this.stoned;
+  set stoned(distanceInCells) {
+    this._stoned = Math.log2(distanceInCells)* 5;
   }
 
-  setAttack(distanceInCells) {
+  get attack() {
+    return this.stoned ? Math.round(this._attack) : 100;
+  }
+
+  set attack(distanceInCells) {
     const powerDistanceDamage = new Uint8Array([100, 90, 80, 70, 60]);
-    this.setStoned(distanceInCells);
-    this.attack = (powerDistanceDamage[distanceInCells - 1] / 100) * this.attack - this.getStoned();
-  }
-
-  getAttack() {
-    return Math.round(this.attack);
+    this._attack = (powerDistanceDamage[distanceInCells - 1] / 100) * 100 - this.stoned;
   }
 };
