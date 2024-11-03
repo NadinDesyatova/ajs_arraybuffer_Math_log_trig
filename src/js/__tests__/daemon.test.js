@@ -14,15 +14,7 @@ test('should create the correct Daemon object', () => {
   expect(result).toEqual(expected);
 });
 
-test('should return the unchanged damage strength', () => {
-  const daemon = new Daemon('Neo');
-  const result = daemon.attack;
-  const expected = 100;
-
-  expect(result).toBe(expected);
-});
-
-test('should change the damage strength based on stoned', () => {
+test('should correctly calculate the attack power', () => {
   const daemon = new Daemon('Neo');
   daemon.stoned = 4;
   daemon.attack = 4;

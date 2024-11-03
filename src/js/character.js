@@ -22,19 +22,19 @@ export default class Character {
   }
 
   get stoned() {
-    return this._stoned;
+    return this.stonedPower;
   }
 
   set stoned(distanceInCells) {
-    this._stoned = Math.log2(distanceInCells)* 5;
+    this.stonedPower = Math.log2(distanceInCells) * 5;
   }
 
   get attack() {
-    return this.stoned ? Math.round(this._attack) : 100;
+    return Math.round(this.damagePower);
   }
 
   set attack(distanceInCells) {
     const powerDistanceDamage = new Uint8Array([100, 90, 80, 70, 60]);
-    this._attack = (powerDistanceDamage[distanceInCells - 1] / 100) * 100 - this.stoned;
+    this.damagePower = (powerDistanceDamage[distanceInCells - 1] / 100) * 100 - this.stoned;
   }
 };

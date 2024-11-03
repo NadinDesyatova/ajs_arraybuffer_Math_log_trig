@@ -14,15 +14,7 @@ test('should create the correct Magician object', () => {
   expect(result).toEqual(expected);
 });
 
-test('should return the unchanged damage strength', () => {
-  const magician = new Magician('Neo');
-  const result = magician.attack;
-  const expected = 100;
-
-  expect(result).toBe(expected);
-});
-
-test('should change the damage strength based on stoned', () => {
+test('should correctly calculate the attack power', () => {
   const magician = new Magician('Neo');
   magician.stoned = 4;
   magician.attack = 4;
