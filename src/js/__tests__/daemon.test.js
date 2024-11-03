@@ -23,3 +23,12 @@ test('should correctly calculate the attack power', () => {
 
   expect(result).toBe(expected);
 });
+
+
+test('should return the unchanged attack power', () => {
+  const daemon = new Daemon('Neo');
+  const result = daemon.attack;
+  const expected = 100;
+
+  expect(result).toBe(expected);
+});

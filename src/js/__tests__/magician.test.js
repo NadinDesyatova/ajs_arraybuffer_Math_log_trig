@@ -23,3 +23,11 @@ test('should correctly calculate the attack power', () => {
 
   expect(result).toBe(expected);
 });
+
+test('should return the unchanged attack power', () => {
+  const magician = new Magician('Neo');
+  const result = magician.attack;
+  const expected = 100;
+
+  expect(result).toBe(expected);
+});

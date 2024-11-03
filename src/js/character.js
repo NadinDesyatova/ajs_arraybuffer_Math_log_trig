@@ -30,11 +30,11 @@ export default class Character {
   }
 
   get attack() {
-    return Math.round(this.damagePower);
+    const powerDistanceDamage = new Uint8Array([90, 80, 70, 60]);
+    return this.stoned ? Math.round((powerDistanceDamage[this.distanceInCells - 2] / 100) * 100 - this.stoned) : 100;
   }
 
   set attack(distanceInCells) {
-    const powerDistanceDamage = new Uint8Array([100, 90, 80, 70, 60]);
-    this.damagePower = (powerDistanceDamage[distanceInCells - 1] / 100) * 100 - this.stoned;
+    this.distanceInCells = distanceInCells;
   }
 };
